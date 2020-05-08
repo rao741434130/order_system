@@ -12,8 +12,7 @@
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
-    <script src="/js/html5shiv.min.js"></script>
-    <script src="/js/respond.min.js"></script>
+    <script src="/js/login.js"></script>
     <![endif]-->
 <style type="text/css">
 	.button13 {
@@ -71,7 +70,7 @@
 
 
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
 	//取得XMLHttpRequest对象是AJAX的要点  
 	//此getXMLRequest()方法是根据不同浏览器来取得XMLHttpRequest对象  
 	function getXMLRequest() {
@@ -103,7 +102,7 @@
 		request.open("GET", "code", true);
 		request.send(null);
 	}
-</script>
+</script>-->
 
 
 </head>
@@ -123,8 +122,10 @@
 
 			<div class="form-group login-text">
 				<label>验证码：</label><input class="form-control login-inputcode"
-					type="text" name="codetext" />&nbsp;&nbsp;&nbsp;<img id="code"
-					src="code" onclick="checkcode()" style="width:100px;height:30px;">
+					type="text" name="codetext" />&nbsp;&nbsp;&nbsp;
+				<img src="validateColorServlet" id="code2" style="width:100px;height:30px;">
+				<!--<img id="code"
+					src="code" onclick="checkcode()" style="width:100px;height:30px;">-->
 			</div>	
 			
 		<button class="btn btn-lg btn-primary btn-block login-text button13"
@@ -132,8 +133,8 @@
 		</form>
 	</div>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="../static/bootstrap/js/jquery-1.11.1.min.js"></script>
+	<script src="/bootstrap/js/jquery-1.11.1.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="../static/bootstrap/js/bootstrap.js"></script>
+	<script src="/bootstrap/js/bootstrap.js"></script>
 </body>
 </html>
