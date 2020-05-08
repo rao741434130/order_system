@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<base href="<%=basePath%>">
+
+<title>${ORDER_SYS_NAME}-餐厅管理员</title>
+
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+
+<link rel="stylesheet" href="../../../static/css/dashboard.css">
+
+
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="../../../static/bootstrap/js/jquery-1.11.1.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="../../../static/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../static/js/ajax.js"></script>
+
+
+</head>
+
+<body style="font-family: 微软雅黑" onload="getDishesList(1)">	
+	<div class="container-fluid">
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<ol class="breadcrumb">
+					<li><a href="/OrderSys/">首页</a></li>
+					<li>服务员</li>
+					<li class="active">服务员点餐界面</li>
+				</ol>
+				<div class="panel panel-danger">
+					<div class="panel-heading">
+						<h2 class="panel-title">最新公告消息</h2>
+					</div>
+					<div class="panel-body" style="padding-bottom: 10px">
+						<h4>
+							<i class=" icon-envelope icon-large" style="color:orange;"></i>&nbsp;6号桌菜品：川香回锅肉已经完成！
+						</h4>
+					</div>
+				</div>
+				<div class="panel panel-danger">
+					<div class="panel-heading">
+						<h2 class="panel-title">菜品清单</h2>
+					</div>
+					<div class="panel-body" style="padding-bottom: 0px">
+						<div class="row placeholders" id="dishesbord">
+							<div class="col-xs-6 col-sm-3 placeholder">
+								<a href="#"> <img class="img-thumbnail"
+									style="border-radius:20px" alt="Generic placeholder thumbnail"
+									src="../../../static/img/dishes/1.jpg"></a>
+								<h4>鱼香肉丝</h4>
+								<span class="text-muted">色香味俱全，顾客都喜欢</span>
+								<div class="class="form-group"">
+									<form>
+										<div style="width:120px;margin: 0px auto">
+											<div class="input-group">
+												<span class="input-group-btn">
+													<button class="btn btn-default" type="button"
+														onclick="subtract(this)">-</button>
+												</span> <input type="text" class="form-control" value="1"
+													disabled="disabled" name="num"
+													style="text-align: center;padding: 0px;cursor: text;"><input
+													type="hidden" name="dishes" value="6" /> <span
+													class="input-group-btn">
+													<button class="btn btn-default" type="button"
+														onclick="add(this)">+</button>
+												</span>
+											</div>
+											<!-- /input-group -->
+										</div>
+										<p>
+											<input type="button" class="btn btn-danger"
+												style="width:120px;margin-top: 5px" value="加入点餐车"></input>
+										</p>
+									</form>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-3 placeholder">
+								<a href="#"> <img class="img-thumbnail"
+									style="border-radius:20px" alt="Generic placeholder thumbnail"
+									src="../../../static/img/dishes/1.jpg"></a>
+								<h4>鱼香肉丝</h4>
+								<span class="text-muted">色香味俱全，顾客都喜欢</span>
+								<div class="class="form-group"">
+									<form>
+										<div style="width:120px;margin: 0px auto">
+											<div class="input-group">
+												<span class="input-group-btn">
+													<button class="btn btn-default" type="button"
+														onclick="subtract(this)">-</button>
+												</span> <input type="text" class="form-control" value="1"
+													disabled="disabled" name="num"
+													style="text-align: center;padding: 0px;cursor: text;"><input
+													type="hidden" name="dishes" value="6" /> <span
+													class="input-group-btn">
+													<button class="btn btn-default" type="button"
+														onclick="add(this)">+</button>
+												</span>
+											</div>
+											<!-- /input-group -->
+										</div>
+										<p>
+											<input type="button" class="btn btn-danger"
+												style="width:120px;margin-top: 5px" value="加入点餐车"></input>
+										</p>
+									</form>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-3 placeholder">
+								<a href="#"> <img class="img-thumbnail"
+									style="border-radius:20px" alt="Generic placeholder thumbnail"
+									src="../../../static/img/dishes/1.jpg"></a>
+								<h4>鱼香肉丝</h4>
+								<span class="text-muted">色香味俱全，顾客都喜欢</span>
+								<div class="class="form-group"">
+									<form>
+										<div style="width:120px;margin: 0px auto">
+											<div class="input-group">
+												<span class="input-group-btn">
+													<button class="btn btn-default" type="button"
+														onclick="subtract(this)">-</button>
+												</span> <input type="text" class="form-control" value="1"
+													disabled="disabled" name="num"
+													style="text-align: center;padding: 0px;cursor: text;"><input
+													type="hidden" name="dishes" value="6" /> <span
+													class="input-group-btn">
+													<button class="btn btn-default" type="button"
+														onclick="add(this)">+</button>
+												</span>
+											</div>
+											<!-- /input-group -->
+										</div>
+										<p>
+											<input type="button" class="btn btn-danger"
+												style="width:120px;margin-top: 5px" value="加入点餐车"></input>
+										</p>
+									</form>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-3 placeholder">
+								<a href="#"> <img class="img-thumbnail"
+									style="border-radius:20px" alt="Generic placeholder thumbnail"
+									src="../../../static/img/dishes/1.jpg"></a>
+								<h4>鱼香肉丝</h4>
+								<span class="text-muted">色香味俱全，顾客都喜欢</span>
+								<div class="class="form-group"">
+									<form>
+										<div style="width:120px;margin: 0px auto">
+											<div class="input-group">
+												<span class="input-group-btn">
+													<button class="btn btn-default" type="button"
+														onclick="subtract(this)">-</button>
+												</span> <input type="text" class="form-control" value="1"
+													disabled="disabled" name="num"
+													style="text-align: center;padding: 0px;cursor: text;"><input
+													type="hidden" name="dishes" value="6" /> <span
+													class="input-group-btn">
+													<button class="btn btn-default" type="button"
+														onclick="add(this)">+</button>
+												</span>
+											</div>
+											<!-- /input-group -->
+										</div>
+										<p>
+											<input type="button" class="btn btn-danger"
+												style="width:120px;margin-top: 5px" value="加入点餐车"></input>
+										</p>
+									</form>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-3 placeholder">
+								<a href="#"> <img class="img-thumbnail"
+									style="border-radius:20px" alt="Generic placeholder thumbnail"
+									src="../../../static/img/dishes/1.jpg"></a>
+								<h4>鱼香肉丝</h4>
+								<span class="text-muted">色香味俱全，顾客都喜欢</span>
+								<div class="class="form-group"">
+									<form>
+										<div style="width:120px;margin: 0px auto">
+											<div class="input-group">
+												<span class="input-group-btn">
+													<button class="btn btn-default" type="button"
+														onclick="subtract(this)">-</button>
+												</span> <input type="text" class="form-control" value="1"
+													disabled="disabled" name="num"
+													style="text-align: center;padding: 0px;cursor: text;"><input
+													type="hidden" name="dishes" value="6" /> <span
+													class="input-group-btn">
+													<button class="btn btn-default" type="button"
+														onclick="add(this)">+</button>
+												</span>
+											</div>
+											<!-- /input-group -->
+										</div>
+										<p>
+											<input type="button" class="btn btn-danger"
+												style="width:120px;margin-top: 5px" value="加入点餐车"></input>
+										</p>
+									</form>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-3 placeholder">
+								<a href="#"> <img class="img-thumbnail"
+									style="border-radius:20px" alt="Generic placeholder thumbnail"
+									src="../../../static/img/dishes/1.jpg"></a>
+								<h4>鱼香肉丝</h4>
+								<span class="text-muted">色香味俱全，顾客都喜欢</span>
+								<div class="class="form-group"">
+									<form>
+										<div style="width:120px;margin: 0px auto">
+											<div class="input-group">
+												<span class="input-group-btn">
+													<button class="btn btn-default" type="button"
+														onclick="subtract(this)">-</button>
+												</span> <input type="text" class="form-control" value="1"
+													disabled="disabled" name="num"
+													style="text-align: center;padding: 0px;cursor: text;"><input
+													type="hidden" name="dishes" value="6" /> <span
+													class="input-group-btn">
+													<button class="btn btn-default" type="button"
+														onclick="add(this)">+</button>
+												</span>
+											</div>
+											<!-- /input-group -->
+										</div>
+										<p>
+											<input type="button" class="btn btn-danger"
+												style="width:120px;margin-top: 5px" value="加入点餐车"></input>
+										</p>
+									</form>
+								</div>
+							</div>
+							<div class="col-xs-6 col-sm-3 placeholder">
+								<a href="#"> <img class="img-thumbnail"
+									style="border-radius:20px" alt="Generic placeholder thumbnail"
+									src="../../../static/img/dishes/1.jpg"></a>
+								<h4>鱼香肉丝</h4>
+								<span class="text-muted">色香味俱全，顾客都喜欢</span>
+								<div class="class="form-group"">
+									<form>
+										<div style="width:120px;margin: 0px auto">
+											<div class="input-group">
+												<span class="input-group-btn">
+													<button class="btn btn-default" type="button"
+														onclick="subtract(this)">-</button>
+												</span> <input type="text" class="form-control" value="1"
+													disabled="disabled" name="num"
+													style="text-align: center;padding: 0px;cursor: text;"><input
+													type="hidden" name="dishes" value="6" /> <span
+													class="input-group-btn">
+													<button class="btn btn-default" type="button"
+														onclick="add(this)">+</button>
+												</span>
+											</div>
+											<!-- /input-group -->
+										</div>
+										<p>
+											<input type="button" class="btn btn-danger"
+												style="width:120px;margin-top: 5px" value="加入点餐车"></input>
+										</p>
+
+									</form>
+								</div>
+							</div>
+						</div>
+						<nav>
+						<ul class="pager">
+							<li><a href="javascript:getDishesList(1)">&larr;首页</a></li>
+							<li><a href="#" id="pre">上一页</a></li>
+							<li><a href="#" id="next">下一页</a></li>
+							<li><a href="#" id="last">末页&rarr;</a></li>
+						</ul>
+						</nav>
+
+						<div style="text-align: center;">
+							<a href="" class="btn btn-danger"
+								style="width: 40%;margin-bottom: 15px;font-size: 18;font-weight: bold;">确认订单</a>
+						</div>
+					</div>
+				</div>
+				<div
+					style="height:1px;width: 100%;background: #CCC;margin-bottom: 10px"></div>
+				<footer>
+				<p>&copy; ${ORDER_SYS_NAME}-中软国际ETC 2015</p>
+				</footer>
+
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

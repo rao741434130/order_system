@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.os.mapper.DishesinfoMapper">
+  <resultMap id="DishesinfoResultMap" type="com.os.entity.Dishesinfo">
+    <id column="dishesid" jdbcType="INTEGER" property="dishesid" />
+    <result column="dishesname" jdbcType="VARCHAR" property="dishesname" />
+    <result column="dishesdiscript" jdbcType="VARCHAR" property="dishesdiscript" />
+    <result column="dishesimg" jdbcType="VARCHAR" property="dishesimg" />
+    <result column="dishestxt" jdbcType="VARCHAR" property="dishestxt" />
+    <result column="recommend" jdbcType="INTEGER" property="recommend" />
+    <result column="dishesprice" jdbcType="VARCHAR" property="dishesprice" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dishesid, dishesname, dishesdiscript, dishesimg, dishestxt, recommend, dishesprice
+  </sql>
+  <select id="selectAll" resultMap="DishesinfoResultMap">
+    select <include refid="Base_Column_List" /> from dishesinfo
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="DishesinfoResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dishesinfo
+    where dishesid = #{dishesid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from dishesinfo
+    where dishesid = #{dishesid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertSelective" parameterType="com.os.entity.Dishesinfo">
+    insert into dishesinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dishesid != null">
+        dishesid,
+      </if>
+      <if test="dishesname != null">
+        dishesname,
+      </if>
+      <if test="dishesdiscript != null">
+        dishesdiscript,
+      </if>
+      <if test="dishesimg != null">
+        dishesimg,
+      </if>
+      <if test="dishestxt != null">
+        dishestxt,
+      </if>
+      <if test="recommend != null">
+        recommend,
+      </if>
+      <if test="dishesprice != null">
+        dishesprice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dishesid != null">
+        #{dishesid,jdbcType=INTEGER},
+      </if>
+      <if test="dishesname != null">
+        #{dishesname,jdbcType=VARCHAR},
+      </if>
+      <if test="dishesdiscript != null">
+        #{dishesdiscript,jdbcType=VARCHAR},
+      </if>
+      <if test="dishesimg != null">
+        #{dishesimg,jdbcType=VARCHAR},
+      </if>
+      <if test="dishestxt != null">
+        #{dishestxt,jdbcType=VARCHAR},
+      </if>
+      <if test="recommend != null">
+        #{recommend,jdbcType=INTEGER},
+      </if>
+      <if test="dishesprice != null">
+        #{dishesprice,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.os.entity.Dishesinfo">
+    update dishesinfo
+    <set>
+      <if test="dishesname != null">
+        dishesname = #{dishesname,jdbcType=VARCHAR},
+      </if>
+      <if test="dishesdiscript != null">
+        dishesdiscript = #{dishesdiscript,jdbcType=VARCHAR},
+      </if>
+      <if test="dishesimg != null">
+        dishesimg = #{dishesimg,jdbcType=VARCHAR},
+      </if>
+      <if test="dishestxt != null">
+        dishestxt = #{dishestxt,jdbcType=VARCHAR},
+      </if>
+      <if test="recommend != null">
+        recommend = #{recommend,jdbcType=INTEGER},
+      </if>
+      <if test="dishesprice != null">
+        dishesprice = #{dishesprice,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dishesid = #{dishesid,jdbcType=INTEGER}
+  </update>
+</mapper>

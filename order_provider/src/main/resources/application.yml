@@ -1,0 +1,21 @@
+server:
+  port:8081
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/order?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 19970510
+  application:
+    name: order-provider
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123@12.12.43.253:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server}}
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.os.entity
+
